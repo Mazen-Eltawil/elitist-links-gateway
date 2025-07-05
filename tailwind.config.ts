@@ -18,12 +18,19 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'kepler': ['Playfair Display', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				'charcoal-grey': 'hsl(var(--charcoal-grey))',
+				'champagne-gold': 'hsl(var(--champagne-gold))',
+				'white-gold': 'hsl(var(--white-gold))',
+				'light-goldenrod': 'hsl(var(--light-goldenrod))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
