@@ -16,7 +16,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center">
           <img 
-            src="/lovable-uploads/e514473f-4678-4fc1-b53d-3a8d0176fd90.png" 
+            src="/lovable-uploads/aff64c40-bb63-4ec8-894d-3048a1a404b5.png" 
             alt="Elitist Links" 
             className="h-10 w-auto"
           />
@@ -28,7 +28,7 @@ const Header = () => {
             <Link
               key={link.name}
               to={link.path}
-              className="font-kepler uppercase tracking-widest text-sm text-white-gold hover:text-light-goldenrod transition-colors duration-300"
+              className="font-kepler uppercase tracking-widest text-sm text-white-gold hover:text-light-goldenrod smooth-transition"
             >
               {link.name}
             </Link>
@@ -37,7 +37,7 @@ const Header = () => {
 
         {/* Search Icon */}
         <div className="flex items-center">
-          <button className="text-white-gold hover:text-light-goldenrod transition-colors duration-300">
+          <button className="text-white-gold hover:text-light-goldenrod smooth-transition">
             <Search className="w-5 h-5" />
           </button>
         </div>

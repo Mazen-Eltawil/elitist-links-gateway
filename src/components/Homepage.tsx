@@ -7,7 +7,7 @@ const Homepage = () => {
     { name: "Rolex", src: "/lovable-uploads/490c7b5a-b40b-4b82-a8e0-bc5693ed5bd4.png" },
     { name: "Audemars Piguet", src: "/lovable-uploads/ae04833c-c6dd-4917-85d3-ea2eb63fbbb7.png" },
     { name: "Patek Philippe", src: "/lovable-uploads/ba7f9119-919c-4423-ad10-df630ea80c6f.png" },
-    { name: "Richard Mille", src: "/lovable-uploads/7b440c13-9775-44ad-ba1b-2c22a26a813a.png" },
+    { name: "Richard Mille", src: "/lovable-uploads/955ed702-5412-4694-9405-2ff37e94a7e4.png" },
   ];
 
   return (
@@ -30,16 +30,16 @@ const Homepage = () => {
       {/* Featured Brands Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-16 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-16 max-w-4xl mx-auto animate-on-scroll">
             {brandLogos.map((brand) => (
               <div
                 key={brand.name}
-                className="flex items-center justify-center h-32 border border-champagne-gold/20 rounded-lg hover:border-champagne-gold transition-colors duration-300 p-4"
+                className="flex items-center justify-center h-32 border border-champagne-gold/20 rounded-lg hover:border-champagne-gold hover-lift p-4"
               >
                 <img 
                   src={brand.src} 
                   alt={brand.name} 
-                  className="max-h-16 max-w-full object-contain"
+                  className="max-h-16 max-w-full object-contain image-lazy-load"
                 />
               </div>
             ))}
@@ -50,7 +50,7 @@ const Homepage = () => {
       {/* Sourcing & Consignment Section */}
       <section className="py-24 bg-charcoal-grey">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto animate-on-scroll">
             {/* Looking for something special */}
             <div className="text-center space-y-6">
               <h2 className="font-kepler text-3xl font-bold text-white-gold">
@@ -59,7 +59,7 @@ const Homepage = () => {
               <p className="text-white-gold/80 text-lg leading-relaxed">
                 Our curated collection features the world's most sought-after timepieces.
               </p>
-              <Button className="bg-transparent border-2 border-champagne-gold text-champagne-gold hover:bg-champagne-gold hover:text-charcoal-grey font-kepler uppercase tracking-wider px-6 py-3">
+              <Button className="bg-transparent border-2 border-champagne-gold text-champagne-gold hover:bg-champagne-gold hover:text-charcoal-grey font-kepler uppercase tracking-wider px-6 py-3 smooth-transition">
                 Browse Collection
               </Button>
             </div>
@@ -72,7 +72,7 @@ const Homepage = () => {
               <p className="text-white-gold/80 text-lg leading-relaxed">
                 Partner with us to connect your timepiece with the right collector.
               </p>
-              <Button className="bg-transparent border-2 border-light-goldenrod text-light-goldenrod hover:bg-light-goldenrod hover:text-charcoal-grey font-kepler uppercase tracking-wider px-6 py-3">
+              <Button className="bg-transparent border-2 border-light-goldenrod text-light-goldenrod hover:bg-light-goldenrod hover:text-charcoal-grey font-kepler uppercase tracking-wider px-6 py-3 smooth-transition">
                 Start Consignment
               </Button>
             </div>

@@ -57,10 +57,10 @@ const WatchListings = () => {
                     <button
                       key={brand}
                       onClick={() => toggleSelection(brand, selectedBrands, setSelectedBrands)}
-                      className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                      className={`px-3 py-1 rounded-full text-sm smooth-transition ${
                         selectedBrands.includes(brand)
                           ? "bg-light-goldenrod text-charcoal-grey"
-                          : "bg-champagne-gold/20 text-charcoal-grey hover:bg-champagne-gold/30"
+                          : "bg-champagne-gold/20 text-charcoal-grey hover-glow"
                       }`}
                     >
                       {brand}
@@ -96,7 +96,7 @@ const WatchListings = () => {
                     <button
                       key={color.name}
                       onClick={() => toggleSelection(color.name, selectedDialColors, setSelectedDialColors)}
-                      className={`w-8 h-8 rounded-full border-2 transition-all ${
+                      className={`w-8 h-8 rounded-full border-2 smooth-transition hover:scale-110 ${
                         selectedDialColors.includes(color.name)
                           ? "border-charcoal-grey ring-2 ring-light-goldenrod"
                           : "border-gray-300 hover:border-charcoal-grey"
@@ -171,12 +171,12 @@ const WatchListings = () => {
             {/* Product Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {mockWatches.map((watch) => (
-                <div key={watch.id} className="bg-card rounded-lg overflow-hidden border hover:shadow-lg transition-shadow">
+                <div key={watch.id} className="bg-card rounded-lg overflow-hidden border hover-lift">
                   <div className="aspect-square relative overflow-hidden">
                     <img 
                       src={watch.image} 
                       alt={`${watch.brand} ${watch.model}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover image-lazy-load smooth-transition hover:scale-105"
                     />
                   </div>
                   <div className="p-4 space-y-2">

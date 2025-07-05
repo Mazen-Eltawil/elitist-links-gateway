@@ -108,14 +108,14 @@ const Blog = () => {
           </div>
 
           {/* Articles Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 animate-on-scroll">
             {blogPosts.slice(1).map((post) => (
-              <article key={post.id} className="bg-card rounded-lg overflow-hidden border hover:shadow-lg transition-shadow">
+              <article key={post.id} className="bg-card rounded-lg overflow-hidden border hover-lift">
                 <div className="aspect-video relative overflow-hidden">
                   <img 
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover image-lazy-load smooth-transition hover:scale-105"
                   />
                 </div>
                 <div className="p-6 space-y-4">
@@ -125,7 +125,7 @@ const Blog = () => {
                       {post.category}
                     </span>
                   </div>
-                  <h2 className="font-kepler text-xl font-bold text-charcoal-grey hover:text-light-goldenrod transition-colors">
+                  <h2 className="font-kepler text-xl font-bold text-charcoal-grey hover:text-light-goldenrod smooth-transition">
                     <a href="#">{post.title}</a>
                   </h2>
                   <p className="text-charcoal-grey/80 leading-relaxed text-sm">
@@ -133,7 +133,7 @@ const Blog = () => {
                   </p>
                   <a 
                     href="#" 
-                    className="inline-flex items-center text-light-goldenrod hover:text-light-goldenrod/80 font-medium text-sm"
+                    className="inline-flex items-center text-light-goldenrod hover:text-light-goldenrod/80 font-medium text-sm smooth-transition"
                   >
                     Read More →
                   </a>
@@ -156,7 +156,7 @@ const Blog = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg bg-white-gold/10 border border-champagne-gold text-white-gold placeholder:text-white-gold/60 focus:outline-none focus:border-light-goldenrod"
               />
-              <button className="px-6 py-3 bg-light-goldenrod text-charcoal-grey rounded-lg font-kepler uppercase tracking-wider hover:bg-light-goldenrod/90 transition-colors">
+              <button className="px-6 py-3 bg-light-goldenrod text-charcoal-grey rounded-lg font-kepler uppercase tracking-wider hover:bg-light-goldenrod/90 smooth-transition">
                 Subscribe
               </button>
             </div>

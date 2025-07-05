@@ -8,7 +8,7 @@ const AboutUs = () => {
       
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto space-y-12">
-          <div className="text-center space-y-6">
+          <div className="text-center space-y-6 animate-on-scroll">
             <h1 className="font-kepler text-5xl md:text-6xl font-bold text-charcoal-grey">
               About Elitist Links
             </h1>
@@ -17,7 +17,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center animate-on-scroll">
             <div className="space-y-6">
               <h2 className="font-kepler text-3xl font-bold text-charcoal-grey">
                 Our Story
@@ -56,7 +56,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 animate-on-scroll">
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-light-goldenrod/20 rounded-full flex items-center justify-center mx-auto">
                 <div className="w-8 h-8 bg-light-goldenrod rounded-full"></div>
