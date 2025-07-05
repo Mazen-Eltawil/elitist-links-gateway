@@ -106,7 +106,7 @@ const ContactUs = () => {
                       Call Us: +971 50 997 7198
                     </Button>
                   </a>
-                  <a href="https://chat.whatsapp.com/C27QtbI2RgCCi6VAhw8C5Z">
+                  <a href="https://wa.me/971509977198">
                     <Button 
                       className="w-full bg-transparent border-2 border-light-goldenrod text-light-goldenrod hover:bg-light-goldenrod hover:text-charcoal-grey font-kepler uppercase tracking-wider"
                       size="lg"
