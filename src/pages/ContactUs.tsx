@@ -106,13 +106,21 @@ const ContactUs = () => {
                       Call Us: +971 50 997 7198
                     </Button>
                   </a>
-                  <a href="https://wa.me/971509977198">
+                  <a href="https://chat.whatsapp.com/C27QtbI2RgCCi6VAhw8C5Z">
                     <Button 
                       className="w-full bg-transparent border-2 border-light-goldenrod text-light-goldenrod hover:bg-light-goldenrod hover:text-charcoal-grey font-kepler uppercase tracking-wider"
                       size="lg"
                     >
                       <MessageCircle className="w-5 h-5 mr-2" />
                       WhatsApp: +971 50 997 7198
+                    </Button>
+                  </a>
+                  <a href="https://calendly.com/elitistlinks-coo/30min">
+                    <Button 
+                      className="w-full bg-light-goldenrod text-charcoal-grey hover:bg-light-goldenrod/90 font-kepler uppercase tracking-wider"
+                      size="lg"
+                    >
+                      Schedule a Private Consultation
                     </Button>
                   </a>
                 </div>

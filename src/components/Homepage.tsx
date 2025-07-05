@@ -4,10 +4,10 @@ import Footer from "./Footer";
 
 const Homepage = () => {
   const brandLogos = [
-    { name: "Rolex", src: "/lovable-uploads/490c7b5a-b40b-4b82-a8e0-bc5693ed5bd4.png" },
-    { name: "Audemars Piguet", src: "/lovable-uploads/ae04833c-c6dd-4917-85d3-ea2eb63fbbb7.png" },
-    { name: "Patek Philippe", src: "/lovable-uploads/ba7f9119-919c-4423-ad10-df630ea80c6f.png" },
-    { name: "Richard Mille", src: "/lovable-uploads/955ed702-5412-4694-9405-2ff37e94a7e4.png" },
+    { name: "Rolex", src: "/lovable-uploads/254edc25-a1c0-4d2b-b2ba-421b176897dc.png" },
+    { name: "Audemars Piguet", src: "/lovable-uploads/06102560-3644-479a-98d2-35d757fe88d0.png" },
+    { name: "Patek Philippe", src: "/lovable-uploads/1cb435fa-eec0-4b0a-bc67-8eb8c26538f8.png" },
+    { name: "Richard Mille", src: "/lovable-uploads/3d6e675d-5e80-45d1-a5ba-4a12ee3f78ed.png" },
   ];
 
   return (
