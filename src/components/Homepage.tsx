@@ -4,10 +4,10 @@ import Footer from "./Footer";
 
 const Homepage = () => {
   const brandLogos = [
-    { name: "Rolex", placeholder: "R" },
-    { name: "Audemars Piguet", placeholder: "AP" },
-    { name: "Patek Philippe", placeholder: "PP" },
-    { name: "Richard Mille", placeholder: "RM" },
+    { name: "Rolex", src: "/lovable-uploads/490c7b5a-b40b-4b82-a8e0-bc5693ed5bd4.png" },
+    { name: "Audemars Piguet", src: "/lovable-uploads/ae04833c-c6dd-4917-85d3-ea2eb63fbbb7.png" },
+    { name: "Patek Philippe", src: "/lovable-uploads/ba7f9119-919c-4423-ad10-df630ea80c6f.png" },
+    { name: "Richard Mille", src: "/lovable-uploads/7b440c13-9775-44ad-ba1b-2c22a26a813a.png" },
   ];
 
   return (
@@ -34,11 +34,13 @@ const Homepage = () => {
             {brandLogos.map((brand) => (
               <div
                 key={brand.name}
-                className="flex items-center justify-center h-32 border border-champagne-gold/20 rounded-lg hover:border-champagne-gold transition-colors duration-300"
+                className="flex items-center justify-center h-32 border border-champagne-gold/20 rounded-lg hover:border-champagne-gold transition-colors duration-300 p-4"
               >
-                <span className="font-kepler text-2xl font-bold text-charcoal-grey">
-                  {brand.placeholder}
-                </span>
+                <img 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  className="max-h-16 max-w-full object-contain"
+                />
               </div>
             ))}
           </div>

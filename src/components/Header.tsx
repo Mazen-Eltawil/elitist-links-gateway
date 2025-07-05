@@ -1,28 +1,37 @@
 import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const navLinks = ["Home", "Watches", "About Us", "Contact Us", "Blog"];
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Watches", path: "/watches" }, 
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Blog", path: "/blog" }
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-charcoal-grey border-b border-champagne-gold">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo placeholder */}
+        {/* Logo */}
         <div className="flex items-center">
-          <div className="w-32 h-8 bg-white-gold/20 rounded flex items-center justify-center text-white-gold text-sm">
-            LOGO
-          </div>
+          <img 
+            src="/lovable-uploads/e514473f-4678-4fc1-b53d-3a8d0176fd90.png" 
+            alt="Elitist Links" 
+            className="h-10 w-auto"
+          />
         </div>
 
         {/* Navigation Menu */}
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
+            <Link
+              key={link.name}
+              to={link.path}
               className="font-kepler uppercase tracking-widest text-sm text-white-gold hover:text-light-goldenrod transition-colors duration-300"
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           ))}
         </nav>
 
