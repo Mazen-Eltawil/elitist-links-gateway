@@ -1,9 +1,36 @@
 import { Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import React, { useState } from "react";
 
 const Footer = () => {
   const navLinks = ["Home", "Watches", "About Us", "Contact Us", "Blog"];
+  const [email, setEmail] = useState("");
+  const [thankYou, setThankYou] = useState("");
+  const [loading, setLoading] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setThankYou("");
+    const url = "/api/subscribe";
+    console.log("Sending email to:", url);
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setEmail("");
+        setThankYou("Thank you!");
+      } else {
+        setThankYou("Something went wrong. Please try again.");
+      }
+    } catch {
+      setThankYou("Something went wrong. Please try again.");
+    }
+    setLoading(false);
+  };
 
   return (
     <footer className="bg-charcoal-grey text-white-gold py-16">
@@ -78,15 +105,19 @@ const Footer = () => {
             </div>
             <div className="space-y-2">
               <p className="text-sm">Sign up for our articles</p>
-              <div className="flex space-x-2">
+              <form className="flex space-x-2" onSubmit={handleSubmit}>
                 <Input
                   placeholder="Your email"
                   className="bg-charcoal-grey border-champagne-gold text-white-gold placeholder:text-white-gold/60"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  disabled={loading}
                 />
-                <Button className="bg-light-goldenrod text-charcoal-grey hover:bg-light-goldenrod/90">
-                  Submit
+                <Button className="bg-light-goldenrod text-charcoal-grey hover:bg-light-goldenrod/90" type="submit" disabled={loading}>
+                  {loading ? "..." : "Submit"}
                 </Button>
-              </div>
+                {thankYou && <span className="ml-2 text-light-goldenrod font-semibold">{thankYou}</span>}
+              </form>
             </div>
           </div>
         </div>

@@ -1,18 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { client, urlFor } from "@/lib/sanityClient";
+
+interface Watch {
+  _id: string;
+  brand: string;
+  referenceNumber: string;
+  price: number;
+  mainImage: any;
+}
 
 const WatchListings = () => {
+  const [watches, setWatches] = useState<Watch[]>([]);
   const [priceRange, setPriceRange] = useState([10000, 100000]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
   const [selectedDialColors, setSelectedDialColors] = useState<string[]>([]);
   const [selectedConditions, setSelectedConditions] = useState<string[]>([]);
 
+  // TODO: These filters are not yet connected to the data
   const brands = ["Rolex", "AP", "PP", "RM"];
   const materials = ["Gold", "Steel", "Titanium"];
   const dialColors = [
@@ -22,13 +32,12 @@ const WatchListings = () => {
   ];
   const conditions = ["New", "Like New", "Pre-owned"];
 
-  const mockWatches = Array.from({ length: 9 }, (_, i) => ({
-    id: i + 1,
-    brand: brands[i % 4],
-    model: `Model ${i + 1}`,
-    price: `$${(Math.random() * 50000 + 10000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`,
-    image: `https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center`
-  }));
+  useEffect(() => {
+    const query = '*[_type == "watch" && status == "active"]';
+    client.fetch(query).then((data) => {
+      setWatches(data);
+    });
+  }, []);
 
   const toggleSelection = (item: string, selected: string[], setSelected: (items: string[]) => void) => {
     if (selected.includes(item)) {
@@ -40,8 +49,6 @@ const WatchListings = () => {
 
   return (
     <div className="min-h-screen">
-      <Header />
-      
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Filter Sidebar */}
@@ -170,12 +177,12 @@ const WatchListings = () => {
 
             {/* Product Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {mockWatches.map((watch) => (
-                <div key={watch.id} className="bg-card rounded-lg overflow-hidden border hover-lift">
+              {watches.map((watch) => (
+                <div key={watch._id} className="bg-card rounded-lg overflow-hidden border hover-lift">
                   <div className="aspect-square relative overflow-hidden">
                     <img 
-                      src={watch.image} 
-                      alt={`${watch.brand} ${watch.model}`}
+                      src={urlFor(watch.mainImage).width(400).height(400).fit('crop').crop('center').url()} 
+                      alt={`${watch.brand} ${watch.referenceNumber}`}
                       className="w-full h-full object-cover image-lazy-load smooth-transition hover:scale-105"
                     />
                   </div>
@@ -184,10 +191,10 @@ const WatchListings = () => {
                       {watch.brand}
                     </div>
                     <h3 className="font-kepler font-bold text-lg text-charcoal-grey">
-                      {watch.model}
+                      {watch.referenceNumber}
                     </h3>
                     <div className="font-kepler text-xl font-bold text-light-goldenrod">
-                      {watch.price}
+                      {`$${watch.price.toLocaleString()}`}
                     </div>
                   </div>
                 </div>

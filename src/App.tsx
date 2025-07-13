@@ -10,6 +10,8 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import SingleProduct from "./pages/SingleProduct";
 import Blog from "./pages/Blog";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/watches" element={<WatchListings />} />
@@ -29,6 +32,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -1,19 +1,16 @@
 import { Button } from "@/components/ui/button";
-import Header from "./Header";
 import Footer from "./Footer";
 
 const Homepage = () => {
   const brandLogos = [
-    { name: "Rolex", src: "/lovable-uploads/490c7b5a-b40b-4b82-a8e0-bc5693ed5bd4.png" },
-    { name: "Audemars Piguet", src: "/lovable-uploads/ae04833c-c6dd-4917-85d3-ea2eb63fbbb7.png" },
-    { name: "Patek Philippe", src: "/lovable-uploads/ba7f9119-919c-4423-ad10-df630ea80c6f.png" },
-    { name: "Richard Mille", src: "/lovable-uploads/955ed702-5412-4694-9405-2ff37e94a7e4.png" },
+    { name: "Rolex", src: "/images/rolex-logo.png" },
+    { name: "Audemars Piguet", src: "/images/ap-logo.png" },
+    { name: "Patek Philippe", src: "/images/patek-logo.png" },
+    { name: "Richard Mille", src: "/images/rm-logo.png" },
   ];
 
   return (
     <div className="min-h-screen">
-      <Header />
-      
       {/* Hero Section */}
       <section className="h-screen bg-charcoal-grey flex items-center justify-center">
         <div className="text-center space-y-8">
@@ -28,18 +25,61 @@ const Homepage = () => {
       </section>
 
       {/* Featured Brands Section */}
-      <section className="py-24 bg-background">
+      <section className="py-32 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-16 max-w-4xl mx-auto animate-on-scroll">
+          <div className="text-center mb-16">
+            <h2 className="font-kepler text-4xl md:text-5xl font-bold text-charcoal-grey mb-8">
+              Trusted by Collectors of the World's Finest Brands
+            </h2>
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+              <div className="flex justify-center">
+                <img
+                  src="/images/rolex-logo.png"
+                  alt="Rolex Logo"
+                  width={140}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src="/images/ap-logo.png"
+                  alt="Audemars Piguet Logo"
+                  width={140}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src="/images/patek-logo.png"
+                  alt="Patek Philippe Logo"
+                  width={140}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src="/images/rm-logo.png"
+                  alt="Richard Mille Logo"
+                  width={160}
+                  height={40}
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto animate-on-scroll items-center justify-items-center">
             {brandLogos.map((brand) => (
               <div
                 key={brand.name}
-                className="flex items-center justify-center h-32 border border-champagne-gold/20 rounded-lg hover:border-champagne-gold hover-lift p-4"
+                className="flex items-center justify-center h-24 w-full"
               >
                 <img 
                   src={brand.src} 
                   alt={brand.name} 
-                  className="max-h-16 max-w-full object-contain image-lazy-load"
+                  className="max-h-20 max-w-full object-contain"
                 />
               </div>
             ))}
